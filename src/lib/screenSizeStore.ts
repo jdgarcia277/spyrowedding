@@ -1,19 +1,22 @@
 import { readable } from 'svelte/store';
 
-// Function to check if screen is small
 function isScreenSmall() {
+  // This function now safely checks for window's existence.
   return typeof window !== "undefined" ? window.innerWidth < 768 : false;
 }
 
 export const isSmallScreen = readable(isScreenSmall(), (set) => {
-  const updateSize = () => {
-    set(isScreenSmall());
-  };
+  // Ensure we're in a browser environment before accessing window
+  if (typeof window !== "undefined") {
+    const updateSize = () => {
+      set(isScreenSmall());
+    };
 
-  window.addEventListener('resize', updateSize);
+    window.addEventListener('resize', updateSize);
 
-  // Cleanup function
-  return () => {
-    window.removeEventListener('resize', updateSize);
-  };
+    // Return a cleanup function
+    return () => {
+      window.removeEventListener('resize', updateSize);
+    };
+  }
 });
