@@ -2,8 +2,19 @@
     font-size: 16px; /* 1 rem is this value */
 
     /* Color Variables */
-    --primaryColor: #384b36;
-    --backgroundDark: #212121;
+    --color_primary: #384b36;
+    --color_background: #303031;
+    --color_text: #eeeeee;
+    color-scheme: dark light;
+
+}
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+    :root {
+        --color_background: #ffffff; /* Light background */
+        --color_text: #000000; /* Dark text */
+        --color_link: #0000ee; /* Standard link color for light background */
+    }
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -13,11 +24,10 @@
     padding: 0;
     font: inherit;
 }
-html{
-    color-scheme: dark light;
-}
 body {
     min-height: 100vh;
+    background-color: var(--color_background);
+    color: var(--color_text);
 }
 img, picture, svg, video{
     display: block;

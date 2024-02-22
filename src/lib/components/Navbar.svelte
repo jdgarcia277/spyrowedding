@@ -18,7 +18,7 @@
 {#if $isSmallScreen}
     <nav class="mobile_navbar">
         <div on:click={toggleMenuClick} on:keydown={handleKeydown} class="menuIcon_wrapper {isMenuClicked ? 'clicked' : ''}" role="button" tabindex="0" aria-label="Toggle Menu Size">
-            <MenuIcon height={'75px'} width={'75px'} color={'white'} outlined={true} backgroundColor={'var(--primaryColor)'} svgBgColor={'var(--primaryColor'}/>
+            <MenuIcon height={'75px'} width={'75px'} color={'white'} outlined={true} backgroundColor={'var(--color_primary)'} svgBgColor={'var(--color_primary'}/>
         </div>
         {#if isMenuClicked}
             <ul class="dropdown_menu">
@@ -55,7 +55,7 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background: var(--primaryColor);
+        background: var(--color_primary);
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         position: absolute; /* Positions the menu absolutely within its relative parent */
@@ -68,7 +68,7 @@
     }
     .dropdown_menu li a {
         text-decoration: none;
-        color: white;
+        color: var(--color_text);
         display: block;
     }
     .dropdown_menu li a:hover,
