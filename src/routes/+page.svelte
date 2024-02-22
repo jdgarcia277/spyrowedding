@@ -1,6 +1,6 @@
 <script lang='ts'>
     import { isSmallScreen } from '$lib/screenSizeStore';
-    import Navbar from '$lib/Navbar.svelte';
+    import Navbar from '$lib/components/Navbar.svelte';
 
 </script>
 

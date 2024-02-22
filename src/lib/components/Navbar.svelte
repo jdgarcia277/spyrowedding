@@ -1,6 +1,6 @@
 <script lang="ts">
     import { isSmallScreen } from '$lib/screenSizeStore';
-    import MenuIcon from '$lib/MenuIcon.svelte';
+    import MenuIcon from '$lib/items/MenuIcon.svelte';
 
     let isMenuClicked: boolean = false;
 
