@@ -1,8 +1,25 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
+
     export let title_gap: string = '';
+    export let list_gap: string = '';
     export let title_class: string = 'dancing-script_bold font_large'; //default value
     export let list_class: string = 'dancing-script_regular font_med'; //default value
 
+    type schedule_list = {
+        time: string;
+        event: string
+    }
+    let schedules: schedule_list[] = [];
+
+    async function loadSchedule() {
+		const response = await fetch('api/schedule');
+		schedules = await response.json();
+	}
+
+    onMount(() => {
+        loadSchedule();
+    });
 </script>
 
 <div class="schedule_container">
@@ -11,11 +28,15 @@
     </div>
     <div class="schedule_body">
         <ul>
-            <li class={list_class}>7:00pm - Ceremony</li>
+            {#each schedules as schedule}
+                <li class={list_class} style={`margin-bottom: ${list_gap}`}>{schedule.time + ': ' + schedule.event}</li>
+            {/each}
         </ul>
     </div>
 </div>
 
-<style>
-
+<style> 
+    .schedule_body ul {
+        list-style: none;
+    }
 </style>

@@ -1,7 +1,7 @@
 <script lang='ts'>
     import { isSmallScreen } from '$lib/scripts/screenSizeStore';
     import Navbar from '$lib/components/Navbar.svelte'; //no props
-    import Schedule from '$lib/components/Schedule.svelte'; //props are title_gap, title_class, list_class
+    import Schedule from '$lib/components/Schedule.svelte'; //props are title_gap, list_gap, title_class, list_class
 
 </script>
 
@@ -10,7 +10,7 @@
         <Navbar />
     </div>
     <div class="mobile_home_schedule">
-        <Schedule title_gap={'25px'} />
+        <Schedule title_gap={'25px'} list_gap={'20px'} />
     </div>
 {:else}
     <div class="home_container">
