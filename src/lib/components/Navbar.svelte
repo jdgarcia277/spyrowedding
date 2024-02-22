@@ -22,15 +22,18 @@
         </div>
         {#if isMenuClicked}
             <ul class="dropdown_menu">
-                <li><a href="#/">Home</a></li>
-                <li><a href="#/rsvp">RSVP</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/rsvp">RSVP</a></li>
                 <li><a href="#/our-story">Our Story</a></li>
                 <li><a href="#/wedding-party">Wedding Party</a></li>
             </ul>
         {/if}
     </nav>
 {:else}
-    <nav class="navbar"></nav>
+    <nav class="navbar">
+        <div class="navbar_left"></div>
+        <div class="navbar_right"></div>
+    </nav>
     
 {/if}
 

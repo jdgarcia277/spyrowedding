@@ -25,7 +25,7 @@
         width: 100vw;
         background-image: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-        url('/images/city-zoomed-ringshow-bw-9-16.webp');
+        url('/images/mobile/city-zoomed-ringshow-bw-9-16.webp');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
