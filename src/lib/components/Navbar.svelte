@@ -1,6 +1,7 @@
 <script lang="ts">
     import { isSmallScreen } from '$lib/scripts/screenSizeStore';
-    import MenuIcon from '$lib/items/MenuIcon.svelte';
+    import MenuIcon from '$lib/items/MenuIcon.svelte'; //props are width, height, color, backgroundColor, outlined, svgBgColor
+    import Logo from '$lib/items/Logo.svelte'; //props are width, height, color, outlined
 
     let isMenuClicked: boolean = false;
 
@@ -17,28 +18,47 @@
 
 {#if $isSmallScreen}
     <nav class="mobile_navbar">
-        <div on:click={toggleMenuClick} on:keydown={handleKeydown} class="menuIcon_wrapper {isMenuClicked ? 'clicked' : ''}" role="button" tabindex="0" aria-label="Toggle Menu Size">
-            <MenuIcon height={'75px'} width={'75px'} color={'white'} outlined={true} backgroundColor={'var(--color_primary)'} svgBgColor={'var(--color_primary'}/>
+        <div class="logo_container">
+            <Logo height={'100px'} width={'100px'} color={'var(--color_white)'} />
         </div>
-        {#if isMenuClicked}
-            <ul class="dropdown_menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/rsvp">RSVP</a></li>
-                <li><a href="#/our-story">Our Story</a></li>
-                <li><a href="#/wedding-party">Wedding Party</a></li>
-            </ul>
-        {/if}
+        <div class="mobile_navbar_menu_container">
+            <div on:click={toggleMenuClick} on:keydown={handleKeydown} class="menuIcon_wrapper {isMenuClicked ? 'clicked' : ''}" role="button" tabindex="0" aria-label="Toggle Menu Size">
+                <MenuIcon height={'75px'} width={'75px'} color={'var(--color_white)'} outlined={true} backgroundColor={'var(--color_primary)'} svgBgColor={'var(--color_primary'}/>
+            </div>
+            {#if isMenuClicked}
+                <ul class="dropdown_menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/rsvp">RSVP</a></li>
+                    <li><a href="#/our-story">Our Story</a></li>
+                    <li><a href="#/wedding-party">Wedding Party</a></li>
+                </ul>
+            {/if}
+        </div>
     </nav>
 {:else}
     <nav class="navbar">
-        <div class="navbar_left"></div>
-        <div class="navbar_right"></div>
+        <div class="logo_container">
+            <Logo height={'175px'} width={'175px'} color={'var(--color_white)'}/>
+        </div>
+        <div class="navbar_right">
+            <ul class="navbar_list">
+                <li><a class="font_small_med" href="/">Home</a></li>
+                <li><a class="font_small_med" href="/rsvp">RSVP</a></li>
+                <li><a class="font_small_med" href="#/our-story">Our Story</a></li>
+                <li><a class="font_small_med" href="#/wedding-party">Wedding Party</a></li>
+            </ul>
+        </div>
     </nav>
     
 {/if}
 
 <style>
     .mobile_navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mobile_navbar_menu_container {
         padding: 25px;
         display: flex;
         flex-direction: column;
@@ -53,6 +73,21 @@
     }
     .menuIcon_wrapper.clicked {
         transform: scale(0.85);
+    }
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px 0 50px;
+    }
+    .navbar_list {
+        list-style-type: none;
+        display: flex;
+        gap: 40px;
+    }
+    .navbar_list a {
+        color: var(--color_white);
+        text-decoration: none;
     }
     .dropdown_menu {
         list-style-type: none;

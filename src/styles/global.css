@@ -3,6 +3,7 @@
 
     /* Color Variables */
     --color_primary: #384b36;
+    --color_white: #eeeeee;
     --color_background: #303031;
     --color_text: #eeeeee;
     color-scheme: dark light;
