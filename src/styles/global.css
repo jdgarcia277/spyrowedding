@@ -36,4 +36,25 @@ img, picture, svg, video{
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-  }
+}
+.font_small {
+    font-size: 1rem;
+}
+.font_small_med {
+    font-size: 1.25rem;
+}
+.font_med {
+    font-size: 1.5rem;
+}
+.font_med_large {
+    font-size: 2rem;
+}
+.font_large {
+    font-size: 2.5rem;
+}
+.font_large_xl {
+    font-size: 3rem;
+}
+.font_xl {
+    font-size: 3.5rem;
+}
