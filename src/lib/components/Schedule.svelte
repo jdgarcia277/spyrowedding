@@ -22,11 +22,11 @@
     });
 </script>
 
-<div class="schedule_container">
+<div class= 'schedule_container'>
     <div class="schedule_title" style={`margin-bottom: ${title_gap};`}>
         <h1 class={title_class}>Order of Events</h1>
     </div>
-    <div class="schedule_body">
+    <div class='schedule_body'>
         <ul>
             {#each schedules as schedule}
                 <li class={list_class} style={`margin-bottom: ${list_gap}`}>{schedule.time + ': ' + schedule.event}</li>
@@ -35,7 +35,13 @@
     </div>
 </div>
 
-<style> 
+<style>
+    .schedule_container {
+        text-align: center;
+        width: 100%;
+        padding: 25px;
+        cursor: default;
+    }
     .schedule_body ul {
         list-style: none;
     }
