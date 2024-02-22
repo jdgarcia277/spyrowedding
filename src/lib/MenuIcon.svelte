@@ -22,6 +22,6 @@
     .menuIcon_outlined{
         padding: 15px;
         border: 1px solid var(--svgBgColor);
-        border-radius: 2px;
+        border-radius: 10px;
     }
 </style>
