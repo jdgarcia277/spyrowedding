@@ -1,19 +1,17 @@
 <script lang='ts'>
     import { isSmallScreen } from '$lib/screenSizeStore';
-    import MenuIcon from '$lib/MenuIcon.svelte';
+    import Navbar from '$lib/Navbar.svelte';
 
 </script>
 
 {#if $isSmallScreen}
     <div class="mobile_home_container">
-        <nav class="mobile_navbar">
-            <MenuIcon height={'75px'} width={'75px'} color={'white'} outlined={true} backgroundColor={'var(--primaryColor)'} svgBgColor={'var(--primaryColor'}/>
-        </nav>
+        <Navbar />
     </div>
     
 {:else}
     <div class="home_container">
-        <nav class="navbar"></nav>
+        <Navbar />
     </div>
     
 {/if}
@@ -28,11 +26,5 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-    }
-    .mobile_navbar {
-        padding: 25px;
-        display: flex;
-        justify-content: end;
-        gap: 10px;
     }
 </style>
