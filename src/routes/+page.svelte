@@ -1,20 +1,20 @@
 <script lang='ts'>
     import { isSmallScreen } from '$lib/scripts/screenSizeStore';
-    import Navbar from '$lib/components/Navbar.svelte'; //no props
+    import Navbar from '$lib/components/Navbar.svelte'; //props are logoColor, listColor
     import Schedule from '$lib/components/Schedule.svelte'; //props are title_gap, list_gap, title_class, list_class
 
 </script>
 
 {#if $isSmallScreen}
     <div class="mobile_home_banner">
-        <Navbar />
+        <Navbar logoColor={'var(--color_white'}/>
     </div>
     <div class="mobile_home_schedule">
         <Schedule title_gap={'25px'} list_gap={'20px'} />
     </div>
 {:else}
     <div class="home_banner">
-        <Navbar />
+        <Navbar logoColor={'var(--color_white'}/>
     </div>
     <div class="home_schedule">
         <Schedule title_gap={'50px'} list_gap={'40px'} title_class={'dancing-script_bold font_xl'} list_class={'dancing-script_regular font_med_large'}/>
@@ -28,8 +28,8 @@
         height: 100vh;
         width: 100vw;
         background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-        url('/images/mobile/city-zoomed-ringshow-bw-9-16.webp');
+        linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
+        url('/images/mobile/city-zoomed-ringshow-9-16.webp');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;

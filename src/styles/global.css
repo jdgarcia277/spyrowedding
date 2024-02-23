@@ -4,8 +4,11 @@
     /* Color Variables */
     --color_primary: #384b36;
     --color_white: #eeeeee;
+    --color_dark: #303031;
     --color_background: #303031;
     --color_text: #eeeeee;
+    --color_logo: #eeeeee;
+    --color_link: #eeeeee;
     color-scheme: dark light;
 
 }
@@ -14,8 +17,9 @@
     :root {
         --color_background: #ffffff; /* Light background */
         --color_text: #000000; /* Dark text */
-        --color_link: #0000ee; /* Standard link color for light background */
-    }
+        --color_logo: #384b36;
+        --color_link: #384b36;
+}
 }
 *, *::before, *::after {
     box-sizing: border-box;
