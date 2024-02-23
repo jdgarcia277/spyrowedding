@@ -42,10 +42,10 @@
         </div>
         <div class="navbar_right">
             <ul class="navbar_list">
-                <li><a class="font_small_med" href="/">Home</a></li>
-                <li><a class="font_small_med" href="/rsvp">RSVP</a></li>
-                <li><a class="font_small_med" href="#/our-story">Our Story</a></li>
-                <li><a class="font_small_med" href="#/wedding-party">Wedding Party</a></li>
+                <li><a class="font_med" href="/">Home</a></li>
+                <li><a class="font_med" href="/rsvp">RSVP</a></li>
+                <li><a class="font_med" href="#/our-story">Our Story</a></li>
+                <li><a class="font_med" href="#/wedding-party">Wedding Party</a></li>
             </ul>
         </div>
     </nav>

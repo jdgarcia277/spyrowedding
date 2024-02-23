@@ -45,8 +45,8 @@
         max-height: 1350px;
         max-width: 2400px;
         background-image: 
-            linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-            url('/images/desktop/sitting-on-rock-bw-16-9.webp');
+            linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
+            url('/images/desktop/sitting-on-rock-16-9.webp');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
