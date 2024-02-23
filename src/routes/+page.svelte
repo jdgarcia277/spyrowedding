@@ -18,7 +18,7 @@
     </div>
     <div class="home_schedule">
         <Schedule title_gap={'50px'} list_gap={'40px'} title_class={'dancing-script_bold font_xl'} list_class={'dancing-script_regular font_med_large'}/>
-        <img src="/images/desktop/city-zoomed-ringshow-bw-2-3.webp" alt="hannah and john showing off ring">
+        <img src="/images/desktop/city-zoomed-ringshow-9-16.webp" alt="hannah and john showing off ring">
     </div>
     
 {/if}
@@ -61,5 +61,6 @@
     }
     .home_schedule img {
         width: 350px;
+        margin: auto;
     }
 </style>
