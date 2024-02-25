@@ -74,5 +74,6 @@
     .home_schedule img {
         width: 350px;
         margin: auto;
+        border-radius: 15px;
     }
 </style>
