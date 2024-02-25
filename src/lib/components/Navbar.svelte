@@ -31,8 +31,8 @@
                 <ul class="dropdown_menu">
                     <li><a href="/">Home</a></li>
                     <li><a href="/rsvp">RSVP</a></li>
-                    <li><a href="#/our-story">Our Story</a></li>
-                    <li><a href="#/wedding-party">Wedding Party</a></li>
+                    <li><a href="/our-story">Our Story</a></li>
+                    <li><a href="/wedding-party">Wedding Party</a></li>
                 </ul>
             {/if}
         </div>
@@ -46,8 +46,8 @@
             <ul class="navbar_list">
                 <li><a class="font_med" style={`color: ${listColor}`} href="/">Home</a></li>
                 <li><a class="font_med" style={`color: ${listColor}`} href="/rsvp">RSVP</a></li>
-                <li><a class="font_med" style={`color: ${listColor}`} href="#/our-story">Our Story</a></li>
-                <li><a class="font_med" style={`color: ${listColor}`} href="#/wedding-party">Wedding Party</a></li>
+                <li><a class="font_med" style={`color: ${listColor}`} href="/our-story">Our Story</a></li>
+                <li><a class="font_med" style={`color: ${listColor}`} href="/wedding-party">Wedding Party</a></li>
             </ul>
         </div>
     </nav>
