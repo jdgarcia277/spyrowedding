@@ -2,12 +2,16 @@
     import { isSmallScreen } from '$lib/scripts/screenSizeStore';
     import Navbar from '$lib/components/Navbar.svelte'; //props are logoColor, listColor
     import Schedule from '$lib/components/Schedule.svelte'; //props are title_gap, list_gap, title_class, list_class
+    import JohnHannah from '$lib/items/JohnHannah.svelte';
 
 </script>
 
 {#if $isSmallScreen}
     <div class="mobile_home_banner">
         <Navbar logoColor={'var(--color_white'}/>
+        <div class="home_svg_container">
+            <JohnHannah color={'var(--color_white'} height={'500px'} width={'500px'}/>
+        </div>
     </div>
     <div class="mobile_home_schedule">
         <Schedule title_gap={'25px'} list_gap={'20px'} />
@@ -15,6 +19,9 @@
 {:else}
     <div class="home_banner">
         <Navbar logoColor={'var(--color_white'}/>
+        <div class="home_svg_container">
+            <JohnHannah color={'var(--color_white'} height={'750px'} width={'750px'}/>
+        </div>
     </div>
     <div class="home_schedule">
         <Schedule title_gap={'50px'} list_gap={'40px'} title_class={'dancing-script_bold font_xl'} list_class={'dancing-script_regular font_med_large'}/>
@@ -33,6 +40,11 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    }
+    .home_svg_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .mobile_home_schedule {
         margin-top: 25px;
