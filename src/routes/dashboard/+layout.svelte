@@ -24,11 +24,8 @@
         else if($page.url.pathname.endsWith('/dashboard/rsvp')) {
             pageName = 'RSVP';
         }
-        else if($page.url.pathname.endsWith('/dashboard/schedule')) {
-            pageName = 'Schedule';
-        }
-        else if($page.url.pathname.endsWith('/dashboard/wedding-party')) {
-            pageName = 'Wedding Party';
+        else if($page.url.pathname.endsWith('/dashboard/edit')) {
+            pageName = 'Edit Site';
         }
     }
 </script>
@@ -77,20 +74,12 @@
                         {/if}</a>
                 </div>
                 <div class="side_nav_menu_item">
-                    <a href="/dashboard/schedule">
-                        <DashboardIcons iconName={'schedule_icon'} size={'30px'} />
+                    <a href="/dashboard/edit">
+                        <DashboardIcons iconName={'pencil_icon'} size={'30px'} />
                         {#if gridboolean}
-                            <h3 class="font_small_med">Schedule</h3>
+                            <h3 class="font_small_med">Edit Site</h3>
                         {/if}</a>
                 </div>
-                <div class="side_nav_menu_item">
-                    <a href="/dashboard/wedding-party">
-                        <DashboardIcons iconName={'party_icon'} size={'30px'} />
-                        {#if gridboolean}
-                            <h3 class="font_small_med">Wedding Party</h3>
-                        {/if}</a>
-                </div>
-
             </div>
             <div class="dashboard_main">
                 <slot />
