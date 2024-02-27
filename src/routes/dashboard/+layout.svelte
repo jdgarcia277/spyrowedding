@@ -7,10 +7,12 @@
 
     let gridClassName: string = 'grid_container_min'; //default value
     let gridboolean: boolean = false; //false for minimized
+    let topNavigation: string = 'dashboard_top_nav'; //default value
     const sideHover = () => {
         gridboolean = !gridboolean;
 
-        gridboolean ? gridClassName='grid_container_full' : gridClassName='grid_container_min';
+        gridboolean ? gridClassName = 'grid_container_full' : gridClassName = 'grid_container_min';
+        gridboolean ? topNavigation = 'dashboard_top_nav_min' : topNavigation = 'dashboard_top_nav';
     }
 
     let pageName: string = 'Home'; //default value
@@ -38,7 +40,7 @@
 {:else}
     <div class="dashboard_page_container">
         <div class={gridClassName}>
-            <div class="dashboard_top_nav">
+            <div class={topNavigation}>
                 <div class="dashboard_top_nav_left">
                     <LayoutH1 page={pageName} className={'font_small_med'}/>
                 </div>
@@ -153,6 +155,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: fixed;
+        width: calc(100vw - 65px);
+        height: 60px;
+        right: 0;
+    }
+    .dashboard_top_nav_min {
+        grid-area: header;
+        background: linear-gradient(to right, #384b36 0%, #50694f 100%);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: calc(100vw - 150px);
+        height: 60px;
+        right: 0;
     }
     .dashboard_top_nav_left {
         padding-left: 50px;
@@ -175,7 +193,13 @@
     .dashboard_side_nav {
         grid-area: sidebar;
         background: linear-gradient(to bottom, #384b36 0%, #50694f 100%);
+        position: fixed;
+        height: 100vh;
+        width: 65px;
 
+    }
+    .dashboard_side_nav:hover {
+        width: 150px;
     }
     .side_nav_title {
         display: flex;
