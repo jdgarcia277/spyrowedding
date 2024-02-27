@@ -33,6 +33,7 @@
                     <li><a href="/rsvp">RSVP</a></li>
                     <li><a href="/our-story">Our Story</a></li>
                     <li><a href="/wedding-party">Wedding Party</a></li>
+                    <li><a href="/registry">Registry</a></li>
                 </ul>
             {/if}
         </div>
@@ -48,6 +49,7 @@
                 <li><a class="font_med" style={`color: ${listColor}`} href="/rsvp">RSVP</a></li>
                 <li><a class="font_med" style={`color: ${listColor}`} href="/our-story">Our Story</a></li>
                 <li><a class="font_med" style={`color: ${listColor}`} href="/wedding-party">Wedding Party</a></li>
+                <li><a class="font_med" style={`color: ${listColor}`} href="/registry">Registry</a></li>
             </ul>
         </div>
     </nav>
