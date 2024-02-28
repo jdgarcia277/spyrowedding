@@ -3,8 +3,10 @@
 
     /* Color Variables */
     --color_primary: #384b36;
+    --color_primary_light: #50694f;
     --color_secondary: #c7b098;
     --color_third: #a46f5c;
+    --color_third_light: #ac7d6c;
     --color_white: #eeeeee;
     --color_dark: #303031;
     --color_background: #303031;
@@ -56,6 +58,9 @@ img, picture, svg, video{
 }
 .font_small {
     font-size: 1rem;
+}
+.font_smallish {
+    font-size: 1.1rem;
 }
 .font_small_med {
     font-size: 1.25rem;
