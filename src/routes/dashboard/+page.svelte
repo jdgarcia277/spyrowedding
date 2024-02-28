@@ -1,4 +1,6 @@
 <script lang="ts">
+    import ToDoSummary from "$lib/components/ToDoSummary.svelte";
+
     
     function daysUntilDecember7th2024(): number {
     const today: Date = new Date();
@@ -42,8 +44,7 @@
             <p>//Todo Database date connection</p>
         </div>
         <div class="grid_item todo_list">
-            <h3 class="font_med_large">Todo List:</h3>
-            <p>//Todo Database todo list connection</p>
+            <ToDoSummary />
         </div>
         <div class="grid_item vendor_contact_info">
             <h3 class="font_med_large">Vendors:</h3>
