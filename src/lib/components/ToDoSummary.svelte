@@ -1,15 +1,18 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
+    //declaring type for database format
     type todo_list = {
     item: string;
     id: number;
     tempCheck: boolean;
     completed: boolean;
     }
+    //database variables
     let todos: todo_list[] = [];
     let tempComplete: todo_list[] = [];
 
+    //our database request
     async function loadToDoSummary() {
     try {
         const response = await fetch('api/todo');
@@ -21,9 +24,11 @@
             console.error("Failed to fetch todos:", error);
         }
     }
+    //ensure that the database call is made when our file is mounted to the DOM
     onMount(() => {
         loadToDoSummary();
     });
+    //defining a function that moves our todos to a temporary complete list or vice-versa
     function checkTodoSummary(id: number, tempCheck: boolean): void {
         if (!tempCheck) {
             const index: number = todos.findIndex(todo => todo.id === id);
@@ -42,6 +47,7 @@
             todos = [...todos];
         }
     }
+    //defining a function that removes all our temp completed back into 'todo'
     function cancelCompleted(): void {
         let arrayLength: number = tempComplete.length;
         if(arrayLength > 0) {
@@ -55,9 +61,9 @@
     }
 </script>
 
-<div class="todo_summary_container">
+<div class="summary_container">
     <h3 class="font_med">Todo List:</h3>
-    <div class="todo_summary_items">
+    <div class="summary_items">
         {#each todos as todo}
             <div class="checkbox_item font_smallish">
                 <input type="checkbox" name={String(todo.id)} id={String(todo.id)}
@@ -66,10 +72,10 @@
             </div>    
         {/each}
     </div>
-    <div class="todo_complete_items_container">
+    <div class="complete_items_container">
         {#if tempComplete.length > 0}
             <h4 class="font_small_med">Completed:</h4>
-            <div class="todo_complete_items">
+            <div class="complete_items">
                 {#each tempComplete as temp}
                 <div class="checkbox_item font_smallish">
                     <input type="checkbox" name={String(temp.id)} id={String(temp.id)}
@@ -79,43 +85,36 @@
             {/each}
             </div>
         <div class="complete_buttons_container">
-            <div class="accept_button">
-                <p>Submit</p>
-            </div>
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <!-- svelte-ignore a11y-no-static-element-interactions -->
-            <div class="reject_button" on:click={cancelCompleted}>
-                <p>Cancel</p>
-            </div>
+            <button class="accept_button">Submit</button>
+            <button class="reject_button" on:click={cancelCompleted}>Cancel</button>
         </div>
         {/if}
     </div>
     <!-- Add click event with new todo popup -->
-    <div class="todo_addButton">
-        <p class="font_small">Add/Edit Todos</p>
-    </div>
+    <button class="addButton">Add/Edit Todos</button>
 </div>
 
 <style>
-    .todo_summary_container {
+    .summary_container {
         margin: 20px;
     }
-    .todo_summary_container h3 {
+    .summary_container h3 {
         margin-bottom: 20px;
     }
-    .todo_summary_container h4 {
+    .summary_container h4 {
         margin: 20px 0 20px 0;
     }
-    .todo_addButton {
+    .addButton {
         background-color: var(--color_third);
         color: var(--color_white);
+        border: none;
         box-shadow: 1px 1px 3px black;
         padding: 10px;
         margin-top: 25px;
         border-radius: 15px;
         text-align: center;
     }
-    .todo_addButton:hover {
+    .addButton:hover {
         background-color: var(--color_third_light);
         box-shadow: 3px 3px 3px black;
     }
@@ -163,6 +162,7 @@
     }
     .accept_button {
         padding: 10px;
+        border: none;
         border-radius: 15px;
         background-color: #00e600;
         box-shadow: 1px 1px 3px;
@@ -174,6 +174,7 @@
     }
     .reject_button {
         padding: 10px;
+        border: none;
         border-radius: 15px;
         background-color: #e60000;
         box-shadow: 1px 1px 3px black;
