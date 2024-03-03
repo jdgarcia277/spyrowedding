@@ -155,9 +155,8 @@
                 loadDates();
             }
         }}>
-            <!-- svelte-ignore a11y-autofocus -->
-            <input type="date" name="time" autocomplete="off">
-            <input name="item" type="text" autocomplete="off" placeholder="Enter Event">
+            <input type="date" name="time" autocomplete="off" required>
+            <input name="item" type="text" autocomplete="off" placeholder="Enter Event" required>
             <button class="add_new font_small" type='submit'>Sumbit</button>
         </form>
     {/if}

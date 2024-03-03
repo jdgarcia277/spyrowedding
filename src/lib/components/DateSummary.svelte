@@ -38,6 +38,14 @@
 </section>
 
 <style>
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 25px 0 25px 0;
+        height: calc(100% - 25px);
+        padding-bottom: 25px;
+    }
     h3 {
         margin-bottom: 20px;
     }

@@ -121,7 +121,11 @@
 
 <style>
     .summary_container {
-        margin: 20px;
+        height: calc(100% - 25px);
+        margin: 25px 0 25px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .summary_container h3 {
         margin-bottom: 20px;
