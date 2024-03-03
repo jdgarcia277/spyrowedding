@@ -7,12 +7,12 @@
 
     let gridClassName: string = 'grid_container_min'; //default value
     let gridboolean: boolean = false; //false for minimized
-    let topNavigation: string = 'dashboard_top_nav'; //default value
+    let topNavigation: string = 'top_nav'; //default value
     const sideHover = () => {
         gridboolean = !gridboolean;
 
         gridboolean ? gridClassName = 'grid_container_full' : gridClassName = 'grid_container_min';
-        gridboolean ? topNavigation = 'dashboard_top_nav_min' : topNavigation = 'dashboard_top_nav';
+        gridboolean ? topNavigation = 'top_nav_min' : topNavigation = 'top_nav';
     }
 
     let pageName: string = 'Home'; //default value
@@ -27,21 +27,24 @@
         else if($page.url.pathname.endsWith('/dashboard/edit')) {
             pageName = 'Edit Site';
         }
+        else if($page.url.pathname.endsWith('dashboard/todos')) {
+            pageName = 'Todos';
+        }
     }
 </script>
 
 {#if $isSmallScreen}
-    <div class="dashboard_rejectMobile">
+    <div class="reject_mobile">
         <h1 class="font_small_med">Please use desktop or larger window... <br>no mobile view available for dashboard</h1>
     </div>
 {:else}
-    <div class="dashboard_page_container">
+    <div class="page_container">
         <div class={gridClassName}>
             <div class={topNavigation}>
-                <div class="dashboard_top_nav_left">
+                <div class="nav_top_left">
                     <LayoutH1 page={pageName} className={'font_small_med'}/>
                 </div>
-                <div class="dashboard_top_nav_right">
+                <div class="nav_top_right">
                     <div class="notifications_icon_container">
                         <DashboardIcons iconName={'notification_default_icon'} size={'30px'}/>
                     </div>
@@ -55,25 +58,25 @@
             </div>
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-            <div class="dashboard_side_nav" on:mouseenter={sideHover} on:mouseleave={sideHover}>
-                <div class="side_nav_title">
+            <div class="nav_side" on:mouseenter={sideHover} on:mouseleave={sideHover}>
+                <div class="nav_side_title">
                     <Logo height={'75px'} width={'75px'}/>
                 </div>
-                <div class="side_nav_menu_item">
+                <div class="nav_side_menu_item">
                     <a href="/dashboard">
                         <DashboardIcons iconName={'home_icon'} size={'30px'} />
                         {#if gridboolean}
                             <h3 class="font_small_med">Home</h3>
                         {/if}</a>
                 </div>
-                <div class="side_nav_menu_item">
+                <div class="nav_side_menu_item">
                     <a href="/dashboard/rsvp">
                         <DashboardIcons iconName={'rsvp_icon'} size={'30px'} />
                         {#if gridboolean}
                             <h3 class="font_small_med">RSVP's</h3>
                         {/if}</a>
                 </div>
-                <div class="side_nav_menu_item">
+                <div class="nav_side_menu_item">
                     <a href="/dashboard/edit">
                         <DashboardIcons iconName={'pencil_icon'} size={'30px'} />
                         {#if gridboolean}
@@ -81,7 +84,7 @@
                         {/if}</a>
                 </div>
             </div>
-            <div class="dashboard_main">
+            <div class="main">
                 <slot />
             </div>
         </div>
@@ -90,7 +93,7 @@
 {/if}
 
 <style>
-    .dashboard_rejectMobile {
+    .reject_mobile {
         height: 100vh;
         width: 100vw;
         display: flex;
@@ -137,7 +140,7 @@
             "sidebar main main main main main main main"
             "sidebar main main main main main main main";
     }
-    .dashboard_top_nav {
+    .top_nav {
         grid-area: header;
         background: linear-gradient(to right, #384b36 0%, #50694f 100%);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -149,7 +152,7 @@
         height: 60px;
         right: 0;
     }
-    .dashboard_top_nav_min {
+    .top_nav_min {
         grid-area: header;
         background: linear-gradient(to right, #384b36 0%, #50694f 100%);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -161,10 +164,10 @@
         height: 60px;
         right: 0;
     }
-    .dashboard_top_nav_left {
+    .nav_top_left {
         padding-left: 50px;
     }
-    .dashboard_top_nav_right {
+    .nav_top_right {
         padding-right: 50px;
         display: flex;
         align-items: center;
@@ -179,7 +182,7 @@
     .notifications_icon_container {
         position: relative;
     }
-    .dashboard_side_nav {
+    .nav_side {
         grid-area: sidebar;
         background: linear-gradient(to bottom, #384b36 0%, #50694f 100%);
         position: fixed;
@@ -187,21 +190,21 @@
         width: 65px;
 
     }
-    .dashboard_side_nav:hover {
+    .nav_side:hover {
         width: 150px;
     }
-    .side_nav_title {
+    .nav_side_title {
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: default;
     }
-    .side_nav_menu_item {
+    .nav_side_menu_item {
         margin: 50px 0 50px 0;
         padding: 15px 0 15px 0;
         cursor: default;
     }
-    .side_nav_menu_item a {
+    .nav_side_menu_item a {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -209,32 +212,33 @@
         text-decoration: none;
         color: var(--color_text)
     }
-    .side_nav_menu_item:hover,
-    .side_nav_menu_item:focus {
+    .nav_side_menu_item:hover,
+    .nav_side_menu_item:focus {
         background-color: rgba(255,255,255,0.2);
     }
-    .dashboard_main {
+    .main {
         grid-area: main;
+        margin: 50px; /* Will default for all slot component pages */
     }
     
     @media (prefers-color-scheme: light) {
-        .dashboard_top_nav {
+        .top_nav {
             background: white;
         }
-        .dashboard_side_nav {
+        .nav_side {
             background: white;
         }
-        .dashboard_main {
+        .main {
             background: #edeff7;
         }
-        .side_nav_menu_item:hover,
-        .side_nav_menu_item:focus {
+        .nav_side_menu_item:hover,
+        .nav_side_menu_item:focus {
         background-color: #dce0ef;
     }
     }
 
     @media only screen and (min-width: 1600px) {
-        .side_nav_menu_item {
+        .nav_side_menu_item {
             margin: 65px 0 65px 0;
         }
     }

@@ -63,7 +63,6 @@
 
 <style>
     .dashboard_home_content {
-        margin: 50px;
         color: black;
     }
     .dashboard_home_grid_container {

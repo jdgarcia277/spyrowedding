@@ -12,16 +12,33 @@
     let todos: todo_list[] = [];
     let tempComplete: todo_list[] = [];
 
-    //our database request
+    //our database functions
     async function loadToDoSummary() {
     try {
-        const response = await fetch('api/todo');
+        const response = await fetch('/api/todo?completed=false');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         todos = await response.json();
     }   catch (error) {
             console.error("Failed to fetch todos:", error);
+        }
+    }
+    async function editTodo(todo: todo_list) {
+        try {
+            const response = await fetch(`/api/todo?id=${todo.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'item': todo.item, 'id': todo.id, 'tempCheck': todo.tempCheck, 'completed': todo.completed, }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.error("Failed to update todo:", error);
         }
     }
     //ensure that the database call is made when our file is mounted to the DOM
@@ -59,6 +76,14 @@
             tempComplete = [];
         }
     }
+    function submitTemps(): void {
+        for (let index = 0; index < tempComplete.length; index++) {
+            tempComplete[index].completed = true;
+            tempComplete[index].tempCheck = false;
+            editTodo(tempComplete[index]);
+        }
+        tempComplete = [];
+    }
 </script>
 
 <div class="summary_container">
@@ -85,13 +110,13 @@
             {/each}
             </div>
         <div class="complete_buttons_container">
-            <button class="accept_button">Submit</button>
+            <button class="accept_button" on:click={submitTemps}>Submit</button>
             <button class="reject_button" on:click={cancelCompleted}>Cancel</button>
         </div>
         {/if}
     </div>
     <!-- Add click event with new todo popup -->
-    <button class="addButton">Add/Edit Todos</button>
+    <a href="/dashboard/todos"><button class="addButton">Add/Edit Todos</button></a>
 </div>
 
 <style>
@@ -183,5 +208,8 @@
     .reject_button:hover {
         background-color: #ff0000;
         box-shadow: 3px 3px 3px black;
+    }
+    a {
+        text-decoration: none;
     }
 </style>
