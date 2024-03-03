@@ -71,10 +71,12 @@
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
     .grid_item {
-        min-height: 300px;
+        min-height: 350px;
+        max-height: 350px;
         min-width: 400px;
         background-color: var(--color_white);
         border-radius: 15px;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
