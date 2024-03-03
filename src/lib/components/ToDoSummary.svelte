@@ -193,12 +193,12 @@
         padding: 10px;
         border: none;
         border-radius: 15px;
-        background-color: #00e600;
+        background-color: var(--color_bold_green);
         box-shadow: 1px 1px 3px;
         color: var(--color_black);
     }
     .accept_button:hover {
-        background-color: #00ff00;
+        background-color: var(--color_bold_green_light);
         box-shadow: 3px 3px 3px;
     }
     .reject_button {
