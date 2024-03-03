@@ -30,6 +30,9 @@
         else if($page.url.pathname.endsWith('dashboard/todos')) {
             pageName = 'Todos';
         }
+        else if($page.url.pathname.endsWith('dashboard/dates')) {
+            pageName = 'Important Dates';
+        }
     }
 </script>
 
