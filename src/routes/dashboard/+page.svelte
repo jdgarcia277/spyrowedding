@@ -1,5 +1,6 @@
 <script lang="ts">
-    import ToDoSummary from "$lib/components/ToDoSummary.svelte";
+    import DateSummary from "$lib/components/DateSummary.svelte";
+import ToDoSummary from "$lib/components/ToDoSummary.svelte";
 
     
     function daysUntilDecember7th2024(): number {
@@ -40,8 +41,7 @@
             <p>RSVP Summary // todo</p>
         </div>
         <div class="grid_item date_reminders">
-            <h3 class="font_med_large">Important Dates:</h3>
-            <p>//Todo Database date connection</p>
+            <DateSummary />
         </div>
         <div class="grid_item todo_list">
             <ToDoSummary />
