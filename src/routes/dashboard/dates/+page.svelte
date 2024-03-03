@@ -161,6 +161,7 @@
             <button class="add_new font_small" type='submit'>Sumbit</button>
         </form>
     {/if}
+    <a href="/dashboard"><button class="add_new font_small_med" style="margin-left: 25px;">Return home</button></a>
 </main>
 
 <style>

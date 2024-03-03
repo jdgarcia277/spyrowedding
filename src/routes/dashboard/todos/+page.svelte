@@ -125,7 +125,7 @@
                             }
                         }}>
                             <!-- svelte-ignore a11y-autofocus -->
-                            <input autofocus name="item" type="text" autocomplete="off" placeholder="Edit Todo">
+                            <input autofocus name="item" type="text" autocomplete="off" value={todo.item}>
                         </form>
                     {/if}
                     <div class="icons_container">
