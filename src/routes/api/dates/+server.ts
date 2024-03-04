@@ -8,7 +8,7 @@ type date_list = {
     clicked: boolean;
 }
 
-export function GET() {
+export async function GET() {
     return json(sampleDates);
 }
 

@@ -1,6 +1,6 @@
 <script lang="ts">
     import DashboardIcons from "$lib/items/DashboardIcons.svelte";
-import { onMount } from "svelte";
+    import { onMount } from "svelte";
 
     //type for database variable
     type date_list = {

@@ -1,6 +1,7 @@
 <script lang="ts">
     import DateSummary from "$lib/components/DateSummary.svelte";
 import ToDoSummary from "$lib/components/ToDoSummary.svelte";
+    import VendorSummary from "$lib/components/VendorSummary.svelte";
 
     
     function daysUntilDecember7th2024(): number {
@@ -46,17 +47,8 @@ import ToDoSummary from "$lib/components/ToDoSummary.svelte";
         <div class="grid_item todo_list">
             <ToDoSummary />
         </div>
-        <div class="grid_item vendor_contact_info">
-            <h3 class="font_med_large">Vendors:</h3>
-            <div class="vendor_contact_info_container">
-                <div>
-                    <p>Vendor Name-</p>
-                </div>
-                <div style={'display: flex; flex-direction: column; gap: 5px;'}>
-                    <p>Vendor number</p>
-                    <p>Vendor email</p>
-                </div>
-            </div>
+        <div class="grid_item vendor_summary">
+            <VendorSummary />
         </div>
     </div>
 </div>
@@ -68,12 +60,12 @@ import ToDoSummary from "$lib/components/ToDoSummary.svelte";
     .dashboard_home_grid_container {
         display: grid;
         gap: 3rem;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     }
     .grid_item {
         min-height: 350px;
         max-height: 350px;
-        min-width: 400px;
+        /* min-width: 400px; */
         background-color: var(--color_white);
         border-radius: 15px;
         overflow-y: auto;
@@ -90,17 +82,11 @@ import ToDoSummary from "$lib/components/ToDoSummary.svelte";
         justify-content: center;
         align-items: center;
     }
-    .vendor_contact_info {
+    .vendor_summary {
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 20px;
-    }
-    .vendor_contact_info_container {
-        display: flex;
-        gap: 50px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid black;
     }
 
 </style>
